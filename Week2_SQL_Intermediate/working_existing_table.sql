@@ -53,3 +53,44 @@ UPDATE invoices
 SET payment_total = 100
 WHERE client_id IN (5,3);
 
+
+-- -------------------------------SQL VIEW--------------------
+USE sql_hr;
+
+CREATE VIEW new_employee
+AS
+SELECT *
+FROM employees
+WHERE job_title NOT LIKE '%VP%' AND reports_to IS NOT NULL;
+
+SELECT *
+FROM new_employee;
+
+-- -------------------------------USING VIEWS------------------
+
+SELECT 
+		first_name,
+        last_name,
+        salary,
+        (salary+(0.05*salary)) AS salary_increase
+FROM new_employee;
+
+-- -------------------------------ALTER VIEWS------------------
+
+ALTER VIEW new_employee
+AS
+SELECT *
+FROM employees
+WHERE job_title NOT LIKE '%VP%';
+
+ALTER VIEW new_employee
+AS
+SELECT *
+FROM employees
+WHERE job_title NOT LIKE '%VP%' AND reports_to IS NOT NULL AND salary > 70000;
+
+-- ------------------DROP VIEW-------------------
+
+DROP VIEW new_employee
+
+

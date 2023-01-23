@@ -58,9 +58,8 @@ SELECT * FROM new_employee
 
 -- COUNT()
 
-
 SELECT COUNT(name)
-FROM new_employee
+FROM new_employee;
 
 
 -- SUM()
@@ -80,7 +79,6 @@ FROM new_employee
 
 SELECT * FROM new_employee
 
-
 -- MAX()
 
 
@@ -96,13 +94,10 @@ FROM new_employee
 
 
 
--- COUNT FXN in detail
-
-
+-- ----------COUNT FXN in detail----------------
 -- COUNT with WHERE
 
-
-SELECT COUNT(* )
+SELECT COUNT(*)
 FROM new_employee
 WHERE working_hours > 10
 
@@ -113,26 +108,11 @@ FROM new_employee
 
 -- HAVING()
 
-
 USE sql_store;
-
 
 SELECT first_name, last_name, points, phone
 FROM customers
-HAVING points > 1000
-
-
-
-
-
-
-
-
-
-
-
-
-
+HAVING points > 1000;
 
 
 -- EXERCISE 
@@ -141,20 +121,14 @@ HAVING points > 1000
 -- ROLL UP : https://www.mysqltutorial.org/mysql-rollup/
 
 
-
-
-
-
-
 -- LENGTH()
-
 -- CHAR_LENGTH(), CHARACTER_LENGTH()
 
 
 USE sql_hr;
 
 SELECT first_name, LENGTH(first_name) AS length_of_name
-FROM  employees
+FROM  employees;
 
 --
 
@@ -162,37 +136,39 @@ SELECT first_name,
 				LENGTH(first_name) ,
 				CHAR_LENGTH(first_name),
                 CHARACTER_LENGTH(first_name)
-FROM  employees
+FROM  employees;
 
 
 
 -- CONCAT()
 
 SELECT CONCAT(first_name,' ',last_name,': ', salary)
-FROM employees
+FROM employees;
 
 
 -- FORMAT()
 
 SELECT salary, FORMAT(salary,0) AS formated
-FROM employees
+FROM employees;
 
 
 -- INSERT()
 
-SELECT INSERT('abcEGF',4,3,'def')
+SELECT INSERT('abcEGF',4,3,'def');
 
-SELECT* FROM employees 
+SELECT *
+FROM employees;
 
-SELECT job_title, INSERT(job_title,9,9,'General')
+SELECT job_title,
+INSERT(job_title,9,9,'General')
 FROM employees
-WHERE employee_id = 33391
+WHERE employee_id = 33391;
 
 
 -- LOCATE()
 
 SELECT employee_id, job_title, LOCATE('executive', job_title)
-FROM employees
+FROM employees;
 
 
 SELECT employee_id, 
@@ -200,7 +176,7 @@ SELECT employee_id,
                 INSERT (job_title, 8,9,'Manager')
 FROM employees
                 
-WHERE employee_id = 80529
+WHERE employee_id = 80529;
 
 
 -- UCASE() : UPPER CASE
@@ -212,23 +188,4 @@ SELECT job_title,
                 last_name,
                 LCASE(job_title),
                 UCASE(first_name)
-FROM employees
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+FROM employees;
